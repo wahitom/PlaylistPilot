@@ -11,7 +11,7 @@ import { Stack } from "react-bootstrap";
 
 function App() {
   return (
-    <>
+    <div style={{ background: "#b5ea8c", height: "100vh" }}>
       <Navbar />
 
       <div>
@@ -19,8 +19,6 @@ function App() {
           <div
             style={{
               padding: "35px",
-              height: "100vh",
-              // background: "gray",
             }}
           >
             <Routes>
@@ -31,7 +29,7 @@ function App() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
