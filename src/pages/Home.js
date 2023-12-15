@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { Button, Col, Form, Row, Stack } from "react-bootstrap";
+import { Button, Form, Row, Stack } from "react-bootstrap";
 
 import PlaylistCard from "../components/PlaylistCard";
 import { BASE_URL } from "../utils";
