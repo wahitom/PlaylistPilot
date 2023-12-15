@@ -7,11 +7,11 @@ import Navbar from "./components/Navbar";
 import SIdebar from "./components/SIdebar";
 import { Stack } from "react-bootstrap";
 
-//import './App.css';
+import "./App.css";
 
 function App() {
   return (
-    <div style={{ background: "#b5ea8c", height: "100%" }}>
+    <div className="App">
       <Navbar />
 
       <div style={{ height: "100vh" }}>
