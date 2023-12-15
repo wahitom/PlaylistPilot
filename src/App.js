@@ -11,10 +11,10 @@ import { Stack } from "react-bootstrap";
 
 function App() {
   return (
-    <div style={{ background: "#b5ea8c", height: "100vh" }}>
+    <div style={{ background: "#b5ea8c", height: "100%" }}>
       <Navbar />
 
-      <div>
+      <div style={{ height: "100vh" }}>
         <div>
           <div
             style={{

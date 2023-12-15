@@ -1,7 +1,24 @@
-import React from "react";
-import { Form, Stack } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Form, Stack } from "react-bootstrap";
 
 function AddPlaylist() {
+  const initialData = {
+    title: "",
+    description: "",
+    rating: "",
+    date_created: "",
+  };
+  const [formData, setFormData] = useState(initialData);
+
+  function handleChange(event) {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  console.log(formData);
+
   return (
     <Stack
       style={{
@@ -37,7 +54,13 @@ function AddPlaylist() {
                 controlId="exampleForm.ControlInput1"
               >
                 <Form.Label>Title</Form.Label>
-                <Form.Control type="title" placeholder="Playlist Title" />
+                <Form.Control
+                  type="text"
+                  name="title"
+                  placeholder="Playlist Title"
+                  value={formData["title"]}
+                  onChange={handleChange}
+                />
               </Form.Group>
 
               {/* Description */}
@@ -46,16 +69,28 @@ function AddPlaylist() {
                 controlId="exampleForm.ControlTextarea1"
               >
                 <Form.Label>Playlist Description</Form.Label>
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  name="description"
+                  value={formData["description"]}
+                  onChange={handleChange}
+                />
               </Form.Group>
 
-              {/* Number of  Songs */}
+              {/* Playlist rating*/}
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Number of songs </Form.Label>
-                <Form.Control type="number" placeholder="Number of Songs " />
+                <Form.Label>Playist Rating </Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Rate me!"
+                  name="rating"
+                  value={formData["rating"]}
+                  onChange={handleChange}
+                />
               </Form.Group>
 
               {/* Date playlist was added */}
@@ -64,9 +99,21 @@ function AddPlaylist() {
                 controlId="exampleForm.ControlInput1"
               >
                 <Form.Label>Date Created </Form.Label>
-                <Form.Control type="date" />
+                <Form.Control
+                  type="date"
+                  name="date_created"
+                  value={formData["date_created"]}
+                  onChange={handleChange}
+                />
               </Form.Group>
             </Form>
+
+            {/* Submit Button */}
+            <>
+              <Button variant="success" style={{ width: "30vh" }}>
+                Submit Playlist
+              </Button>
+            </>
           </Stack>
         </Stack>
       </div>
