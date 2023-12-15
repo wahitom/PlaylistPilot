@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 
-const PlaylistCard = () => {
+const PlaylistCard = ({ image, title, description, rating, date_created }) => {
   return (
     <Card
       style={{
@@ -13,15 +13,15 @@ const PlaylistCard = () => {
         color: "white",
       }}
     >
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={image} />
       <Card.Body>
-        <Card.Title>Playlist Title</Card.Title>
-        <Card.Text color={"gray"}>Description</Card.Text>
+        <Card.Title> {title}</Card.Title>
+        <Card.Text>Description : {description}</Card.Text>
 
         <br />
 
-        <Card.Text>Rating</Card.Text>
-        <Card.Text>Date Created</Card.Text>
+        <Card.Text>Rating : {rating}</Card.Text>
+        <Card.Text>Date Created : {date_created}</Card.Text>
         <Button
           variant="primary"
           style={{ background: "#526a40", border: "0px" }}

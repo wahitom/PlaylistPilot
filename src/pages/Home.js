@@ -4,8 +4,20 @@ import { Button, Col, Form, Row, Stack } from "react-bootstrap";
 
 import PlaylistCard from "../components/PlaylistCard";
 
+const single_playlist = [
+  {
+    id: 1,
+    title: "Greatest Hits",
+    description: "These are the Greatest Of All Time",
+    image:
+      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    rating: 5,
+    date_created: "15-12-2023",
+  },
+];
+
 function Home() {
-  const [playlists, setPlaylists] = useState(new Array(12).fill(Math.random()));
+  const [playlists, setPlaylists] = useState(single_playlist);
 
   return (
     <div>
@@ -30,8 +42,8 @@ function Home() {
 
       <Row style={{ padding: "10px" }}>
         {/* adjust view according to screen size */}
-        {playlists.map((_, index) => (
-          <PlaylistCard key={index} sm={12} md={4} lg={3} />
+        {playlists.map((playlist, index) => (
+          <PlaylistCard key={index} {...playlist} sm={12} md={4} lg={3} />
         ))}
       </Row>
     </div>
