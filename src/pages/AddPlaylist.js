@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Stack } from "react-bootstrap";
+import { BASE_URL } from "../utils";
 
 function AddPlaylist() {
   const initialData = {
@@ -10,6 +11,7 @@ function AddPlaylist() {
     date_created: "",
   };
   const [formData, setFormData] = useState(initialData);
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleChange(event) {
     setFormData({
@@ -18,9 +20,45 @@ function AddPlaylist() {
     });
   }
 
-  console.log(formData);
+  // console.log(formData);
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+
+    //set isloading to true because the form is loading
+    setIsLoading(true);
+
+    // the fetch api that will be working with our server
+    fetch(`${BASE_URL}/playlists`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then(() => {
+        // if the fetching was a success then we reset the form to having no values
+        setFormData(initialData);
+
+        //then we stop the loading
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        //setIsloading(false)
+        console.log(err);
+      });
+
+    // setTimeout(() => {
+    //   console.log("Form submitted");
+    //   setIsLoading(false);
+    // }, 5000);
+
+    console.log(formData);
+  }
 
   return (
+    /* Main container */
     <Stack
       style={{
         background: "#11150d",
@@ -29,6 +67,7 @@ function AddPlaylist() {
         height: "100%",
       }}
     >
+      {/* Sub-container with everything else   */}
       <div>
         <Stack
           gap={3}
@@ -48,7 +87,7 @@ function AddPlaylist() {
               justifyContent: "center",
             }}
           >
-            <Form>
+            <Form onSubmit={handleFormSubmit}>
               {/* Title */}
 
               <Form.Group
@@ -57,9 +96,12 @@ function AddPlaylist() {
               >
                 <Form.Label>Title</Form.Label>
                 <Form.Control
-                  style={{
-                    width: "70vh",
-                  }}
+                  required
+                  style={
+                    {
+                      // width: "70vh",
+                    }
+                  }
                   type="text"
                   name="title"
                   placeholder="Playlist Title"
@@ -75,6 +117,7 @@ function AddPlaylist() {
               >
                 <Form.Label>Playlist Description</Form.Label>
                 <Form.Control
+                  required
                   as="textarea"
                   rows={3}
                   name="description"
@@ -120,20 +163,26 @@ function AddPlaylist() {
               >
                 <Form.Label>Date Created </Form.Label>
                 <Form.Control
+                  required
                   type="date"
                   name="date_created"
                   value={formData["date_created"]}
                   onChange={handleChange}
                 />
               </Form.Group>
+              {/* Submit Button */}
+              <>
+                <Button
+                  variant="success"
+                  style={{
+                    width: "60vh",
+                  }}
+                  type="submit"
+                >
+                  Submit Playlist
+                </Button>
+              </>
             </Form>
-
-            {/* Submit Button */}
-            <>
-              <Button variant="success" style={{ width: "60vh" }}>
-                Submit Playlist
-              </Button>
-            </>
           </Stack>
         </Stack>
       </div>
