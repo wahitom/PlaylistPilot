@@ -4,5 +4,5 @@
 // use a ternary oprator to achieve this
 export const BASE_URL =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
+    ? "http://localhost:8000"
     : process.env.BACKEND_URL;

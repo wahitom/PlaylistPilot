@@ -1,8 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+
 import { Button, Col, Form, Row, Stack } from "react-bootstrap";
 
 import PlaylistCard from "../components/PlaylistCard";
+import { BASE_URL } from "../utils";
 
 const single_playlist = [
   {
@@ -18,13 +21,37 @@ const single_playlist = [
 
 function Home() {
   const [playlists, setPlaylists] = useState(single_playlist);
+  //search for playlists
+  const [searchTerm, setSearchTerm] = useState("");
+
+  //add useEffect to fetch our data
+  useEffect(() => {
+    const handleFetchData = () => {
+      fetch(`${BASE_URL}/playlists`)
+        .then((res) => res.json())
+        .then((playlist) => setPlaylists(playlists))
+        .catch((err) => console.log(err));
+    };
+
+    handleFetchData();
+  }, []);
+
+  //searched playlists
+  const searchedPlaylists = playlists.filter((playlist) =>
+    playlist.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
-      {/* Search for playlists area */}
+      {/* Search for playlists input and button area*/}
       <form>
         <Stack direction="horizontal" gap={3}>
-          <Form.Control className="me-auto" placeholder="Search Playlists" />
+          <Form.Control
+            className="me-auto"
+            placeholder="Search Playlists"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
 
           <Button
             variant="secondary"
@@ -38,14 +65,28 @@ function Home() {
 
       {/* Our playlist display */}
 
-      {/* <div style={{ display: "flex", direction: "column" }}></div> */}
-
-      <Row style={{ padding: "10px" }}>
-        {/* adjust view according to screen size */}
-        {playlists.map((playlist, index) => (
-          <PlaylistCard key={index} {...playlist} sm={12} md={4} lg={3} />
-        ))}
-      </Row>
+      {searchedPlaylists.length > 0 ? (
+        <Row style={{ padding: "10px" }}>
+          {/* adjust view according to screen size */}
+          {searchedPlaylists.map((playlist, index) => (
+            <PlaylistCard key={index} {...playlist} sm={12} md={4} lg={3} />
+          ))}
+        </Row>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "40vh",
+            fontSize: "20px",
+            fontWeight: 600,
+          }}
+        >
+          <span style={{ marginRight: "8px" }}>No Playlists Found.</span>
+          <Link to="/add-playlist"> Add New?</Link>
+        </div>
+      )}
     </div>
   );
 }
