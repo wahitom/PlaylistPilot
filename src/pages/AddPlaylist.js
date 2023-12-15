@@ -5,6 +5,7 @@ function AddPlaylist() {
   const initialData = {
     title: "",
     description: "",
+    image: "",
     rating: "",
     date_created: "",
   };
@@ -24,7 +25,8 @@ function AddPlaylist() {
       style={{
         background: "#11150d",
         color: "white",
-        padding: "30px",
+        padding: "20px",
+        height: "100%",
       }}
     >
       <div>
@@ -55,6 +57,9 @@ function AddPlaylist() {
               >
                 <Form.Label>Title</Form.Label>
                 <Form.Control
+                  style={{
+                    width: "70vh",
+                  }}
                   type="text"
                   name="title"
                   placeholder="Playlist Title"
@@ -74,6 +79,21 @@ function AddPlaylist() {
                   rows={3}
                   name="description"
                   value={formData["description"]}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+
+              {/* playlist image */}
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label>Playlist Image</Form.Label>
+                <Form.Control
+                  type="text"
+                  rows={3}
+                  name="image"
+                  value={formData["image"]}
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -110,7 +130,7 @@ function AddPlaylist() {
 
             {/* Submit Button */}
             <>
-              <Button variant="success" style={{ width: "30vh" }}>
+              <Button variant="success" style={{ width: "60vh" }}>
                 Submit Playlist
               </Button>
             </>
