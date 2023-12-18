@@ -41,7 +41,7 @@ const AddSong = ({ showModal, handleClose, playlistId, playlistTitle }) => {
       user_id: 1,
     };
 
-    console.log(data);
+    //console.log(data);
 
     fetch(`${BASE_URL}/songs`, {
       method: "POST",
