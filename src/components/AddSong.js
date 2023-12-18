@@ -1,8 +1,11 @@
 import React from "react";
 import { useState } from "react";
+
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+
+import toast from "react-hot-toast";
 
 import { BASE_URL } from "../utils";
 
@@ -52,10 +55,21 @@ const AddSong = ({ showModal, handleClose, playlistId, playlistTitle }) => {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
+        //console.log(response);
+
+        if (response.message) {
+          //if the operation was succesful
+          toast.success(response.message, { duration: 6000 });
+        } else {
+          toast.error(response.detail, { duration: 6000 });
+        }
+
         handleClose();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        toast.error("Error occured. Try again later");
+      });
   }
 
   return (
