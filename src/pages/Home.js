@@ -29,7 +29,7 @@ function Home() {
     const handleFetchData = () => {
       fetch(`${BASE_URL}/playlists`)
         .then((res) => res.json())
-        .then((playlist) => setPlaylists(playlists))
+        .then((playlists) => setPlaylists(playlists))
         .catch((err) => console.log(err));
     };
 
