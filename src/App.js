@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { BASE_URL } from "./utils";
+import PlaylistSongs from "./components/PlayistSongs";
 
 function App() {
   const [playlists, setPlaylists] = useState([]);
@@ -47,6 +48,10 @@ function App() {
               <Route path="/" element={<Home playlists={playlists} />} />
               <Route path="/add-playlist" element={<AddPlaylist />} />
               <Route path="/about" element={<About />} />
+              <Route
+                path="/playlists/:playlistId/songs"
+                element={<PlaylistSongs />}
+              />
             </Routes>
           </div>
         </div>

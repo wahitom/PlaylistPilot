@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { Button, Card } from "react-bootstrap";
 import AddSong from "./AddSong";
 
@@ -36,12 +38,15 @@ const PlaylistCard = ({
 
           <Card.Text>Rating : {rating}</Card.Text>
           <Card.Text>Date Created : {date_created}</Card.Text>
-          <Button
-            variant="primary"
-            style={{ background: "#526a40", border: "0px" }}
-          >
-            View playlist
-          </Button>
+
+          <Link to={`/playlists/${id}/songs`}>
+            <Button
+              variant="primary"
+              style={{ background: "#526a40", border: "0px" }}
+            >
+              View Playlist
+            </Button>
+          </Link>
 
           <Button
             variant="primary"
