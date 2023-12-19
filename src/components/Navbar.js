@@ -1,9 +1,12 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
+import { Button } from "react-bootstrap";
 import Stack from "react-bootstrap/Stack";
 
-function Navbar() {
+import Sidebar from "./Sidebar";
+
+function Navbar({ toggleSidebar }) {
   return (
     <Stack
       direction="horizontal"
@@ -15,6 +18,7 @@ function Navbar() {
         color: "white",
       }}
     >
+      <Button onClick={toggleSidebar}>Sidebar</Button>
       <div className="p-2">Logo</div>
 
       <Stack
