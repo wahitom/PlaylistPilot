@@ -55,7 +55,7 @@ function Home() {
           <Button
             variant="secondary"
             type="submit"
-            style={{ background: "#314026" }}
+            style={{ background: "#9b500e", border: "0px" }}
           >
             Search
           </Button>

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+import ListGroup from "react-bootstrap/ListGroup";
 import { BASE_URL } from "../utils";
 
 const PlaylistSongs = () => {
@@ -16,12 +18,14 @@ const PlaylistSongs = () => {
 
   return (
     <div>
-      <h2>Songs for Playlist {playlistId}</h2>
-      <ul>
+      <h3>Songs for Playlist {playlistId}</h3>
+      <ListGroup as="ol" numbered>
         {songs.map((song) => (
-          <li key={song.id}>{song.name}</li>
+          <ListGroup.Item as="li" key={song.id}>
+            {song.name}
+          </ListGroup.Item>
         ))}
-      </ul>
+      </ListGroup>
     </div>
   );
 };

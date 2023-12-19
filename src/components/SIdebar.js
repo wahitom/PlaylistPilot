@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../utils";
 
+import background1 from "../imagesForApp/background1.jpeg";
+
 const Sidebar = () => {
   const [playlists, setPlaylists] = useState([]);
 
@@ -21,17 +23,26 @@ const Sidebar = () => {
         width: "30vh",
         padding: "15px",
         background: "#11150d",
+        backgroundImage: `url(${background1})`,
         color: "white",
       }}
     >
-      <h6>My Playlists</h6>
       <ul>
+        <h6 style={{ marginBottom: "20px" }}>My Playlists</h6>
         {playlists.map((playlist) => (
-          <li key={playlist.id}>
-            <Link to={`/playlists/${playlist.id}/songs`}>
+          <div key={playlist.id}>
+            <Link
+              to={`/playlists/${playlist.id}/songs`}
+              style={{
+                textDecoration: "none", // Remove underline
+                color: "white", // Set text color to white
+                marginBottom: "10px", // Add spacing between lines
+                display: "block", // Make the link a block element
+              }}
+            >
               <ol>{playlist.title}</ol>
             </Link>
-          </li>
+          </div>
         ))}
       </ul>
     </div>

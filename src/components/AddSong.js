@@ -70,6 +70,8 @@ const AddSong = ({ showModal, handleClose, playlistId, playlistTitle }) => {
         console.log(err);
         toast.error("Error occured. Try again later");
       });
+
+    setFormData(initialData);
   }
 
   return (
@@ -109,7 +111,7 @@ const AddSong = ({ showModal, handleClose, playlistId, playlistTitle }) => {
               type="submit"
               //   isLoading = {isLoading}
             >
-              Save Changes
+              Add Song
             </Button>
           </Modal.Footer>
         </Form>

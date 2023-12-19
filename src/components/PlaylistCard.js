@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Button, Card } from "react-bootstrap";
 import AddSong from "./AddSong";
+import background1 from "../imagesForApp/background1.jpeg";
 
 const PlaylistCard = ({
   id,
@@ -26,6 +27,7 @@ const PlaylistCard = ({
           padding: "10px",
           margin: "10px",
           background: "#11150d",
+          backgroundImage: `url(${background1})`,
           color: "white",
         }}
       >
@@ -42,7 +44,7 @@ const PlaylistCard = ({
           <Link to={`/playlists/${id}/songs`}>
             <Button
               variant="primary"
-              style={{ background: "#526a40", border: "0px" }}
+              style={{ background: "#a4530b", border: "0px" }}
             >
               View Playlist
             </Button>
@@ -50,7 +52,11 @@ const PlaylistCard = ({
 
           <Button
             variant="primary"
-            style={{ background: "#526a40", border: "0px", marginLeft: "10px" }}
+            style={{
+              background: "#a4530b",
+              border: "0px",
+              marginLeft: "10px",
+            }}
             onClick={handleShowModal}
           >
             Add Song

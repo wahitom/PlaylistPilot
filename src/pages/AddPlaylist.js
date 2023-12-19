@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, Form, Stack } from "react-bootstrap";
 import { BASE_URL } from "../utils";
 
+import background1 from "../imagesForApp/background1.jpeg";
+
 function AddPlaylist() {
   const initialData = {
     title: "",
@@ -62,6 +64,7 @@ function AddPlaylist() {
     <Stack
       style={{
         background: "#11150d",
+        backgroundImage: `url(${background1})`,
         color: "white",
         padding: "20px",
         height: "100%",
@@ -177,6 +180,8 @@ function AddPlaylist() {
                   variant="success"
                   style={{
                     width: "60vh",
+                    background: "#a4530b",
+                    border: "0px",
                   }}
                   type="submit"
                 >

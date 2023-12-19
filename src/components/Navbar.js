@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import Stack from "react-bootstrap/Stack";
 
 import Sidebar from "./Sidebar";
+//import background2 from "../imagesForApp/background2.jpeg";
 
 function Navbar({ toggleSidebar }) {
   return (
@@ -12,13 +13,30 @@ function Navbar({ toggleSidebar }) {
       direction="horizontal"
       gap={5}
       style={{
-        paddingTop: "60px",
+        paddingTop: "11vh",
         paddingBottom: "10px",
-        background: "#11150d",
+        background: "#111111",
+        //backgroundImage: `url(${background2})`,
         color: "white",
       }}
     >
-      <Button onClick={toggleSidebar}>Sidebar</Button>
+      <Button
+        onClick={toggleSidebar}
+        style={{
+          background: "white",
+          height: "30px",
+          width: "80px",
+          color: "black",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: "10px",
+          textDecoration: "none",
+          border: "0px",
+        }}
+      >
+        See All
+      </Button>
       <div className="p-2">Logo</div>
 
       <Stack
