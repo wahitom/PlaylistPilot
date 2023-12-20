@@ -15,7 +15,7 @@ To add a new playlist one should navigate to the 'Add playlist' form and add ano
 ## Core deliverables
 
 1. The user is able to see the playlists on the homepage once the app loads
-2. The user is able to ass a new playlist to the homepage through the add playlist form
+2. The user is able to add a new playlist to the homepage through the add playlist form
 3. The user is able to add songs to the playlist using the 'add song' button
 4. The user is able to view the songs in a playlist using the 'view playlist' button
 
