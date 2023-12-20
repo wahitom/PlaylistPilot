@@ -4,8 +4,6 @@ import { Link, NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Stack from "react-bootstrap/Stack";
 
-//import background2 from "../imagesForApp/background2.jpeg";
-
 function Navbar({ toggleSidebar }) {
   return (
     <Stack
@@ -15,7 +13,6 @@ function Navbar({ toggleSidebar }) {
         paddingTop: "11vh",
         paddingBottom: "10px",
         background: "#111111",
-        //backgroundImage: `url(${background2})`,
         color: "white",
       }}
     >
