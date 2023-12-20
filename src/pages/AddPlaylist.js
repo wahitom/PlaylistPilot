@@ -13,7 +13,7 @@ function AddPlaylist() {
     date_created: "",
   };
   const [formData, setFormData] = useState(initialData);
-  const [isLoading, setIsLoading] = useState(false);
+  //const [isLoading, setIsLoading] = useState(false);
 
   function handleChange(event) {
     setFormData({
@@ -28,7 +28,7 @@ function AddPlaylist() {
     event.preventDefault();
 
     //set isloading to true because the form is loading
-    setIsLoading(true);
+    //setIsLoading(true);
 
     // the fetch api that will be working with our server
     fetch(`${BASE_URL}/playlists`, {
@@ -44,7 +44,7 @@ function AddPlaylist() {
         setFormData(initialData);
 
         //then we stop the loading
-        setIsLoading(false);
+        //setIsLoading(false);
       })
       .catch((err) => {
         //setIsloading(false)

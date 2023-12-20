@@ -4,7 +4,6 @@ import { Link, NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Stack from "react-bootstrap/Stack";
 
-import Sidebar from "./Sidebar";
 //import background2 from "../imagesForApp/background2.jpeg";
 
 function Navbar({ toggleSidebar }) {
