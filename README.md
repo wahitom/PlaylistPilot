@@ -1,4 +1,30 @@
-# Getting Started with Create React App
+## Playlistpilot Frontend
+
+# Introduction
+
+This is a react app that allows you to add playlists to it and add songs for that pplay list. The front end is build with react giving the user a dynamic experience when interactng with the app
+
+## Set up
+
+Once cloned to your local machine the project can be run using `npm start`
+
+On the interface one should see the different playlists already added to the app and the can click the 'View Playlist" button to see the different songs in the specific playlists
+
+To add a new playlist one should navigate to the 'Add playlist' form and add another playlist. After putting the details and clicking the submit button one should be able to see the playlist appear on the homepage. The can then click "Add song" and a modal will appear prompting them to add a song to the playlist
+
+## Core deliverables
+
+1. The user is able to see the playlists on the homepage once the app loads
+2. The user is able to ass a new playlist to the homepage through the add playlist form
+3. The user is able to add songs to the playlist using the 'add song' button
+4. The user is able to view the songs in a playlist using the 'view playlist' button
+
+## Requirements
+
+1. Code Editor(Vscode)
+2. Github account
+
+## Extra information on react app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +94,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Trobuleshooting
+
+If the playlists are not visible on your page you should make sure the server from the backend is up and running. The instructions o how to set up the backend are on the Playlistpilot backend repo in the README file
