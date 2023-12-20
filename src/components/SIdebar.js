@@ -35,7 +35,7 @@ const Sidebar = () => {
               to={`/playlists/${playlist.id}/songs`}
               style={{
                 textDecoration: "none", // Remove underline
-                color: "white", // Set text color to white
+                color: "white",
                 marginBottom: "10px", // Add spacing between lines
                 display: "block", // Make the link a block element
               }}

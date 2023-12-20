@@ -8,7 +8,8 @@ const PlaylistSongs = () => {
   const { playlistId } = useParams();
   const [songs, setSongs] = useState([]);
 
-  // fetch the songs for the playlists * checkout the route i've included for the songs specifically
+  // fetch the songs for the playlists
+  // here i added a new route in the backend for getting the songs specifically
   useEffect(() => {
     fetch(`${BASE_URL}/playlists/${playlistId}/songs`)
       .then((res) => res.json())
@@ -18,7 +19,7 @@ const PlaylistSongs = () => {
 
   return (
     <div>
-      <h3>Songs for Playlist {playlistId}</h3>
+      <h3>Songs on this Playlist</h3>
       <ListGroup as="ol" numbered>
         {songs.map((song) => (
           <ListGroup.Item as="li" key={song.id}>

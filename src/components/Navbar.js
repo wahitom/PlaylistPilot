@@ -33,11 +33,12 @@ function Navbar({ toggleSidebar }) {
           borderRadius: "10px",
           textDecoration: "none",
           border: "0px",
+          marginRight: "10px",
         }}
       >
         See All
       </Button>
-      <div className="p-2">Logo</div>
+      <div className="p-2">Playlistpilot</div>
 
       <Stack
         direction="horizontal"

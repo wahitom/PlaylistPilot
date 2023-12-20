@@ -20,6 +20,7 @@ const single_playlist = [
 
 function Home() {
   const [playlists, setPlaylists] = useState(single_playlist);
+
   //search for playlists
   const [searchTerm, setSearchTerm] = useState("");
 
